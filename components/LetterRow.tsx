@@ -1,28 +1,25 @@
 "use client";
 
-import { useAppStore } from "@/store/appStore";
-import {getLetterToFindOrRandomLetter} from "@/utils/randomLetter";
 import React from "react";
+import Letter from "@/components/Letter";
 
 interface LetterRowProps {
     rowNumber: number;
 }
 
 const LetterRow: React.FC<LetterRowProps> = (props) => {
-    const { letterToFind, lettersToPickFrom } = useAppStore();
-
     if (props.rowNumber % 2 == 0) {
         return (
             <div className="grid grid-cols-9 gap-4">
-                <span>{getLetterToFindOrRandomLetter(letterToFind, lettersToPickFrom)}</span>
+                <Letter />
                 <span></span>
-                <span>{getLetterToFindOrRandomLetter(letterToFind, lettersToPickFrom)}</span>
+                <Letter />
                 <span></span>
-                <span>{getLetterToFindOrRandomLetter(letterToFind, lettersToPickFrom)}</span>
+                <Letter />
                 <span></span>
-                <span>{getLetterToFindOrRandomLetter(letterToFind, lettersToPickFrom)}</span>
+                <Letter />
                 <span></span>
-                <span>{getLetterToFindOrRandomLetter(letterToFind, lettersToPickFrom)}</span>
+                <Letter />
             </div>
         );
     }
@@ -30,13 +27,13 @@ const LetterRow: React.FC<LetterRowProps> = (props) => {
     return (
         <div className="grid grid-cols-9 gap-4">
             <span></span>
-            <span>{getLetterToFindOrRandomLetter(letterToFind, lettersToPickFrom)}</span>
+            <Letter />
             <span></span>
-            <span>{getLetterToFindOrRandomLetter(letterToFind, lettersToPickFrom)}</span>
+            <Letter />
             <span></span>
-            <span>{getLetterToFindOrRandomLetter(letterToFind, lettersToPickFrom)}</span>
+            <Letter />
             <span></span>
-            <span>{getLetterToFindOrRandomLetter(letterToFind, lettersToPickFrom)}</span>
+            <Letter />
             <span></span>
         </div>
     );
