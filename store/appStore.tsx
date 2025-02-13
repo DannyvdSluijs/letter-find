@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware"
 
 interface AppState {
     letterToFind: string;
@@ -12,9 +13,17 @@ const defaultLettersToPickFrom = {
     aa: 2, ui: 1, ij: 1, ee: 2, uu: 1,
 };
 
-
-export const useAppStore = create<AppState>((set) => ({
-    letterToFind: "w",
-    lettersToPickFrom: defaultLettersToPickFrom,
-    updateLetterToFind: (newLetter: string) => set({ letterToFind: newLetter }),
-}));
+// Creating the store with correct persist typing
+export const useAppStore = create()(
+    persist(
+        (set) => ({
+            letterToFind: "w",
+            lettersToPickFrom: defaultLettersToPickFrom,
+            updateLetterToFind: (newLetter: string) => set({ letterToFind: newLetter }),
+        }),
+        {
+            name: "app-storage", // Unique key for localStorage
+            getStorage: () => localStorage, // Use localStorage for persistence
+        }
+    ) as unknown as StateCreator<AppState>
+);
