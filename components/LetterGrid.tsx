@@ -14,7 +14,7 @@ const LetterGrid: React.FC<LetterGridProps> = (props) => {
     }
 
     return (
-        <div className="bg-white p-6 rounded-lg shadow-lg w-[200mm] border-2 border-gray-500">
+        <div className="bg-white p-6 pt-12 pb-12 rounded-lg shadow-lg w-[200mm] border-2 border-gray-500">
             <div className="space-y-16 text-xl text-center">
                 {rows.map((row) => (
                     <LetterRow key={row} rowNumber={row}></LetterRow>

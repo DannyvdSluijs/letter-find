@@ -2,8 +2,7 @@ export function getLetterToFindOrRandomLetter(letterToFind: string, lettersToPic
     // Generate a random number between 0 and 1
     const randomChance = Math.random();
 
-    // 50% chance to pick the target letter
-    if (randomChance < 0.3) {
+    if (randomChance < 0.15) {
         return letterToFind; // Return target letter 50% of the time
     }
 

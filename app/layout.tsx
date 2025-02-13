@@ -20,7 +20,9 @@ export default function RootLayout({
                 `}
             </style>
         </head>
-        <body>{children}</body>
+        <body className="w-screen h-screen flex justify-center items-start bg-white">
+            {children}
+        </body>
         </html>
     )
 }
